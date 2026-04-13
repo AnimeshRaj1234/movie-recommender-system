@@ -213,6 +213,10 @@ Contributions are welcome! Feel free to fork and improve.
 
 ---
 
+## 🌐 Live Demo
+
+👉 https://movie-recommender-system-gy3dvs7gwbvwgosdwuwrm8.streamlit.app/
+
 ## ⭐ If you like this project
 
 Give it a star ⭐ on GitHub!
