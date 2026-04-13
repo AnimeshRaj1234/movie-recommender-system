@@ -46,18 +46,16 @@ def fetch_poster(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={API_KEY}&language=en-US"
     
     try:
-        response = requests.get(url, verify=certifi.where(), timeout=5)
-
+        response = requests.get(url, timeout=10)  # ❌ remove verify
+        
         if response.status_code != 200:
-            print("API Error:", response.status_code)
             return None
 
         data = response.json()
-
         poster_path = data.get('poster_path')
 
         if poster_path:
-            return "https://image.tmdb.org/t/p/w500/" + poster_path
+            return f"https://image.tmdb.org/t/p/w500{poster_path}"
         else:
             return None
 
@@ -70,7 +68,7 @@ def fetch_poster(movie_id):
 
 def get_movie_details(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={API_KEY}"
-    response = requests.get(url)
+    response = requests.get(url, timeout=10)
     
     if response.status_code != 200:
         return None
@@ -160,6 +158,10 @@ cols = st.columns(len(names))
 for i in range(5):
     with cols[i]:
         poster = fetch_poster(ids[i])
+
         if poster:
             st.image(poster)
+        else:
+            st.write("No Image")
+        
         st.caption(names[i])
