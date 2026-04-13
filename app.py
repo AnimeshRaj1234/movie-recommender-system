@@ -35,7 +35,7 @@ similarity = pickle.load(open('model/similarity.pkl','rb'))
 
 load_dotenv()
 
-API_KEY =  os.getenv("API_KEY")
+API_KEY =  st.secrets["API_KEY"]
 
 # Disable SSL warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
