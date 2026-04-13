@@ -215,7 +215,7 @@ Contributions are welcome! Feel free to fork and improve.
 
 ## 🌐 Live Demo
 
-👉 https://movie-recommender-system-gy3dvs7gwbvwgosdwuwrm8.streamlit.app/
+👉 https://movie-recommender-system-animeshraj.streamlit.app/
 
 ## ⭐ If you like this project
 
