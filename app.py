@@ -9,6 +9,22 @@ import certifi
 import urllib3
 
 
+# download .pkl from hugging face
+
+def download_file(url, path):
+    if not os.path.exists(path):
+        print(f"Downloading {path}...")
+        r = requests.get(url)
+        with open(path, "wb") as f:
+            f.write(r.content)
+
+# Create model folder if not exists
+os.makedirs("model", exist_ok=True)
+
+# Download files
+download_file("https://huggingface.co/WarLordPeakyBlinders/movie-recommender-model/resolve/main/movie_list.pkl", "model/movie_list.pkl")
+download_file("https://huggingface.co/WarLordPeakyBlinders/movie-recommender-model/resolve/main/similarity.pkl", "model/similarity.pkl")
+
 # Load data
 
 movies = pickle.load(open('model/movie_list.pkl','rb'))
